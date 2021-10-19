@@ -1,5 +1,6 @@
 name: Master Branch
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'master'
