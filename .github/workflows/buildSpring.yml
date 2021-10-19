@@ -53,6 +53,6 @@ jobs:
 
       - name: Build the hello-world Docker image
         run: |
-          docker build . --tag ghcr.io/MSD/DevOpsSpringBootExample:latest
-          docker run ghcr.io/MSD/DevOpsSpringBootExample:latest
-          docker push ghcr.io/MSD/DevOpsSpringBootExample:latest
+          docker build . --tag ghcr.io/msd/devops/springbootexample:latest
+          docker run ghcr.io/msd/devops/springbootexample:latest
+          docker push ghcr.io/msd/devops/springbootexample:latest
