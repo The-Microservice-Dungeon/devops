@@ -48,11 +48,4 @@
 		</plugins>
 	</build>
 
-	<distributionManagement>
-		<repository>
-			<id>github</id>
-			<name>DevOps SpringBoot Example</name>
-			<url>https://maven.pkg.github.com/The-Microservice-Dungeon/devops</url>
-		</repository>
-	</distributionManagement>
 </project>
