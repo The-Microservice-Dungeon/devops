@@ -36,3 +36,23 @@ jobs:
         run: mvn -B clean deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  docker:
+    name: Publish - Docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build the hello-world Docker image
+        run: |
+          docker build . --tag ghcr.io/MSD/DevOpsSpringBootExample:latest
+          docker run ghcr.io/MSD/DevOpsSpringBootExample:latest
+          docker push ghcr.io/MSD/DevOpsSpringBootExample:latest
