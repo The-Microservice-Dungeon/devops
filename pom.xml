@@ -51,9 +51,8 @@
 	<distributionManagement>
 		<repository>
 			<id>github</id>
-			<name>GitHub OliverW21 Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/OliverW21/devOpsSpringBootJar</url>
+			<name>DevOps SpringBoot Example</name>
+			<url>https://maven.pkg.github.com/The-Microservice-Dungeon/devops</url>
 		</repository>
 	</distributionManagement>
-
 </project>
