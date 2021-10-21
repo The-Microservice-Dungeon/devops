@@ -5,4 +5,6 @@ WORKDIR /workspace
 COPY pom.xml /workspace
 COPY src /workspace/src
 
-EXPOSE 8080
+RUN mvn -B -f pom.xml clean package -DskipTests
+
+ENTRYPOINT mvn -B -f pom.xml clean package && mvn -B clean verify -DskipTests
