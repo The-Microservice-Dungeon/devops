@@ -1,10 +1,11 @@
-FROM maven:3.6.3-jdk-11-slim AS build
+FROM gradle:jdk11 AS build
 
 RUN mkdir -p /workspace
 WORKDIR /workspace
-COPY pom.xml /workspace
+COPY build.gradle /workspace
+COPY settings.gradle /workspace
 COPY src /workspace/src
 
-RUN mvn -B -f pom.xml clean package -DskipTests
+RUN gradle clean build
 
-ENTRYPOINT mvn -B -f pom.xml clean package && mvn -B clean verify -DskipTests
+ENTRYPOINT gradle clean test
