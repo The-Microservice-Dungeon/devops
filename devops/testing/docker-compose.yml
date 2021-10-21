@@ -1,6 +1,6 @@
 version: '3'
 services:
-  devops:
+  devops-tests:
     container_name: tests
     build:
       dockerfile: ./devops/testing/Dockerfile
