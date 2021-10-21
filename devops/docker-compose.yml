@@ -3,5 +3,5 @@ services:
   devops:
     container_name: tests
     build:
-      dockerfile: testing.Dockerfile
+      dockerfile: ./devops/testing.Dockerfile
       context: ..
