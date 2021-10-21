@@ -16,7 +16,7 @@ jobs:
           path: "devops"
 
       - name: Build Image
-        run: docker build . --tag ghcr.io/the-microservice-dungeon/devops/springbootexample:latest
+        run: docker build ./devops --tag ghcr.io/the-microservice-dungeon/devops/springbootexample:latest
 
       - name: Build and Test Image
         run: |
