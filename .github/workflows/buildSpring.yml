@@ -18,7 +18,7 @@ jobs:
       - name: Build and Test Image
         run: docker-compose -f ./devops/devops/docker-compose.yml -p testing up --build --exit-code-from devops
 
-      -name: docker info
+      - name: docker info
         run: |
           docker ps
           docker images
