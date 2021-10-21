@@ -1,0 +1,11 @@
+version: '3'
+services:
+  devops:
+    container_name: tests
+    build:
+      dockerfile: ./devops/testing/Dockerfile
+      context: ../..
+    command:
+      bash -c "mvn -B -f pom.xml clean package && mvn -B clean verify -DskipTests"
+    ports:
+      - '8080:8080'
