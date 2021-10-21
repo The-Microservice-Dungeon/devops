@@ -51,9 +51,4 @@ public class ServingWebContentApplicationTest {
 				.andExpect(content().string(containsString("Hello, Greg!")));
 	}
 
-	@Test
-	public void die(){
-		assert false;
-	}
-
 }
