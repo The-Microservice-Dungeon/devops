@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'springBoot'
+      - 'springBootMaven'
 
 jobs:
 
@@ -19,7 +19,7 @@ jobs:
         run: docker-compose -f ./devops/devops/docker-compose.yml -p testing up --build --exit-code-from devops
 
       - name: Optimize and create Final Image
-        run: docker build ./devops --tag ghcr.io/the-microservice-dungeon/devops/springbootexample:latest
+        run: docker build ./devops --tag ghcr.io/the-microservice-dungeon/devops/springbootmavenexample:latest
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
@@ -29,4 +29,4 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push Final Image
-        run: docker push ghcr.io/the-microservice-dungeon/devops/springbootexample:latest
+        run: docker push ghcr.io/the-microservice-dungeon/devops/springbootmavenexample:latest
