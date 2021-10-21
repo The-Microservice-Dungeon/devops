@@ -3,7 +3,7 @@ services:
   devops-tests:
     container_name: tests
     build:
-      dockerfile: Dockerfile
+      dockerfile: ./devops/testing/Dockerfile
       context: ../..
-    entrypoint:
+    command:
       bash -c "mvn -B -f pom.xml clean package && mvn -B clean verify -DskipTests"
