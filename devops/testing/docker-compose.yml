@@ -7,5 +7,3 @@ services:
       context: ../..
     command:
       bash -c "mvn -B -f pom.xml clean package && mvn -B clean verify -DskipTests"
-    ports:
-      - '8080:8080'

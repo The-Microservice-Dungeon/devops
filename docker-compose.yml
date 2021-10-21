@@ -1,9 +1,0 @@
-version: '3'
-services:
-  devops:
-    container_name: devops
-    build:
-      dockerfile: Dockerfile
-      context: .
-    ports:
-      - '8080:8080'
