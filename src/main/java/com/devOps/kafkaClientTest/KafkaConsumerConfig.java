@@ -18,8 +18,7 @@ import java.util.Map;
 @Configuration
 public class KafkaConsumerConfig {
 
-    @Value(value = "${kafka.bootstrapAddress}")
-    private String bootstrapAddress;
+    private final String bootstrapAddress = System.getenv("BOOTSTRAP_ADDRESS");
 
     @Value(value = "${kafka.groupId}")
     private String groupId;
