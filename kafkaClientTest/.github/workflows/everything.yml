@@ -1,0 +1,32 @@
+name: Maven - Build, Test and Publish Docker Image for Spring Boot with Maven
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'exampleApplication'
+
+jobs:
+
+  build-test-push:
+    runs-on: ubuntu-latest
+    env:
+      BOOTSTRAP_ADDRESS: kafkabroker:9092
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build and Test Image
+        run: docker-compose -f devops/docker-compose.yml -p testing up --build --exit-code-from devops
+
+      - name: Optimize and create Final Image
+        run: docker build . -f devops/optimize.Dockerfile --tag ghcr.io/the-microservice-dungeon/devops/exampleApplication:latest
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Final Image
+        run: docker push ghcr.io/the-microservice-dungeon/devops/exampleApplication:latest

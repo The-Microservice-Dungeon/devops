@@ -5,5 +5,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class KafkaClientTestApplicationTests {
-    //Tests go here
+    @Test
+    public void addressTest(){
+        System.out.println(System.getenv("BOOTSTRAP_ADDRESS"));
+        assert System.getenv("BOOTSTRAP_ADDRESS").equals("kafkabroker:9092");
+    }
 }
