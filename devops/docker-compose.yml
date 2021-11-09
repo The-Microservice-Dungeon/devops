@@ -2,6 +2,8 @@ version: '3'
 services:
   devops:
     container_name: tests
+    environment:
+      - BOOTSTRAP_ADDRESS=kafkabroker:9092
     build:
       dockerfile: ./devops/testing.Dockerfile
       context: ..
