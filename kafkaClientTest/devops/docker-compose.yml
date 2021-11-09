@@ -1,7 +1,0 @@
-version: '3'
-services:
-  devops:
-    container_name: tests
-    build:
-      dockerfile: ./devops/testing.Dockerfile
-      context: ..

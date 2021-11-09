@@ -15,7 +15,8 @@ import java.util.Map;
 @Configuration
 public class KafkaProducerConfig {
 
-    private final String bootstrapAddress = System.getenv("BOOTSTRAP_ADDRESS");
+    @Value(value = "${kafka.bootstrapAddress}")
+    private String bootstrapAddress;
 
     @Bean
     public ProducerFactory<String, String> producerFactory() {

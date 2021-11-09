@@ -13,7 +13,8 @@ import java.util.Map;
 @Configuration
 public class KafkaTopicConfig {
 
-    private final String bootstrapAddress = System.getenv("BOOTSTRAP_ADDRESS");
+    @Value(value = "${kafka.bootstrapAddress}")
+    private String bootstrapAddress;
 
     @Bean
     public KafkaAdmin kafkaAdmin() {
