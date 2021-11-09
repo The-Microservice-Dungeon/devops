@@ -1,4 +1,4 @@
-name: Maven - Build, Test and Publish Docker Image for Spring Boot with Maven
+name: Build, Test and Push ExampleApplication Container
 
 on:
   workflow_dispatch:
