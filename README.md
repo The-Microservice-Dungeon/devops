@@ -1,5 +1,6 @@
 # Ruby Hello World example
 
+``bundle install`` &
 ``rails webpacker:install``
 
 Then
