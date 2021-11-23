@@ -1,21 +1,24 @@
-# devops-kafka
+# README
 
-This branch contains a docker-compose file [kafkabroker.yml](kafkabroker.yml) which is used to start two docker containers: 
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-[Apache Zookeeper](https://zookeeper.apache.org/), the configuration service for [Apache Kafka](https://kafka.apache.org/documentation/#introduction) and the Kafka Broker itself. The broker advertises on port 29092 for your local development application to connect to via localhost:29092.
+Things you may want to cover:
 
-## Requirements
+* Ruby version
 
-- Docker Engine ([install](https://docs.docker.com/engine/install/))
-- Docker-Compose ([install](https://docs.docker.com/compose/install/))
+* System dependencies
 
+* Configuration
 
+* Database creation
 
-## Run broker
+* Database initialization
 
-Run docker-compose:
+* How to run the test suite
 
-```bash
-docker-compose -f kafkabroker.yml up -d
-```
+* Services (job queues, cache servers, search engines, etc.)
 
+* Deployment instructions
+
+* ...
