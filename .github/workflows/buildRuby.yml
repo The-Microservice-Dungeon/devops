@@ -2,9 +2,9 @@ name: buildRuby
 
 on:
   workflow_dispatch:
-    push:
-      branches:
-        - 'rubyExample'
+  push:
+    branches:
+      - 'rubyExample'
 
 jobs:
   build:
