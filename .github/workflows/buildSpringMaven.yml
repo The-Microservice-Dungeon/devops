@@ -38,14 +38,15 @@ jobs:
         env:
           IMAGE_NAME: ghcr.io/the-microservice-dungeon/devops/springbootmavenexample:latest
           CONTAINER_NAME: devops
+          NETWORK_NAME: devopsNet
         with:
           host: cides03.gm.fh-koeln.de
           username: ${{ secrets.PROD_USER }}
           password: ${{ secrets.PROD_PWD }}
           port: 22
-          envs: IMAGE_NAME, CONTAINER_NAME
+          envs: IMAGE_NAME, CONTAINER_NAME, NETWORK_NAME
           script: |
             echo ${{ secrets.PROD_PWD }} | sudo -S docker pull $IMAGE_NAME
             echo ${{ secrets.PROD_PWD }} | sudo -S docker stop $CONTAINER_NAME
             echo ${{ secrets.PROD_PWD }} | sudo -S docker rm  $CONTAINER_NAME
-            echo ${{ secrets.PROD_PWD }} | sudo -S docker run --name $CONTAINER_NAME -p 8085:8080 -d $IMAGE_NAME
+            echo ${{ secrets.PROD_PWD }} | sudo -S docker run --name $CONTAINER_NAME --network $NETWORK_NAME -p 8085:8080 -d $IMAGE_NAME
