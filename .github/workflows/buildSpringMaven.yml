@@ -45,5 +45,5 @@ jobs:
           envs: IMAGE_NAME
           script: |
             echo ${{ secrets.PROD_PWD }} | sudo -S docker pull $IMAGE_NAME
-            echo ${{ secrets.PROD_PWD }} | sudo docker rm $(sudo docker stop $(sudo -S docker ps -a -q --filter ancestor=$IMAGE_NAME --format="{{.ID}}"))
+            echo ${{ secrets.PROD_PWD }} | sudo -S docker rm $(sudo -S docker stop $(sudo -S docker ps -a -q --filter ancestor=$IMAGE_NAME --format="{{.ID}}"))
             echo ${{ secrets.PROD_PWD }} | sudo -S docker run -p 8085:8080 -d $IMAGE_NAME
