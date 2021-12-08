@@ -44,6 +44,6 @@ jobs:
           port: 22
           envs: IMAGE_NAME
           script: |
-            echo ${{ secrets.PROD_USER }} | sudo -S docker pull $IMAGE_NAME
-            echo ${{ secrets.PROD_USER }} | sudo -S docker ps -a -q  --filter ancestor=$IMAGE_NAME
-            echo ${{ secrets.PROD_USER }} | sudo -S docker run -p 8085:8080 -d $IMAGE_NAME
+            echo ${{ secrets.PROD_PWD }} | sudo -S docker pull $IMAGE_NAME
+            echo ${{ secrets.PROD_PWD }} | sudo -S docker ps -a -q  --filter ancestor=$IMAGE_NAME
+            echo ${{ secrets.PROD_PWD }} | sudo -S docker run -p 8085:8080 -d $IMAGE_NAME
