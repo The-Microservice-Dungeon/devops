@@ -30,6 +30,7 @@ jobs:
         run: docker push ghcr.io/the-microservice-dungeon/devops/springbootmavenexample:latest
 
   deploy:
+    needs: build-test-push
     runs-on: ubuntu-latest
     steps:
       - name: pull
