@@ -28,3 +28,15 @@ jobs:
 
       - name: Push Final Image
         run: docker push ghcr.io/the-microservice-dungeon/devops/springbootmavenexample:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pull
+        uses: appleboy/ssh-action@master
+        with:
+          host: cides03.gm.fh-koeln.de
+          username: ${{ secrets.PROD_USER }}
+          password: ${{ secrets.PROD_PWD }}
+          port: 22
+          script: whoami
