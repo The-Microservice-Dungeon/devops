@@ -44,7 +44,7 @@ jobs:
           port: 22
           envs: IMAGE_NAME, CONTAINER_NAME, NETWORK_NAME
           script: |
-            cd $SERVICE_NAME
+            cd $SERVICE_NAME && ls
             ls
             echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose pull
             echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose up -d
