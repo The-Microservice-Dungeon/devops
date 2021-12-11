@@ -45,5 +45,6 @@ jobs:
           envs: IMAGE_NAME, CONTAINER_NAME, NETWORK_NAME
           script: |
             cd $SERVICE_NAME
+            ls
             echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose pull
             echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose up -d
