@@ -36,10 +36,7 @@ jobs:
       - name: stop-pull-run
         uses: appleboy/ssh-action@master
         env:
-          IMAGE_NAME: ghcr.io/the-microservice-dungeon/devops/springbootmavenexample:latest
-          CONTAINER_NAME: devops
           SERVICE_NAME: devops
-          NETWORK_NAME: devopsNet
         with:
           host: cides03.gm.fh-koeln.de
           username: ${{ secrets.PROD_USER }}
