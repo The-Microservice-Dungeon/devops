@@ -36,13 +36,13 @@ jobs:
       - name: stop-pull-run
         uses: appleboy/ssh-action@master
         env:
-          SERVICE_FOLDER_NAME: devops
+          SERVICE_NAME: devops
         with:
           host: cides03.gm.fh-koeln.de
           username: ${{ secrets.PROD_USER }}
           password: ${{ secrets.PROD_PWD }}
           port: 22
-          envs: IMAGE_NAME, CONTAINER_NAME, NETWORK_NAME
+          envs: SERVICE_NAME
           script: |
-            echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose -f ./$SERVICE_FOLDER_NAME/docker-compose.yml pull
-            echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose -f ./$SERVICE_FOLDER_NAME/docker-compose.yml up -d
+            echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose -f SERVICE_NAME/docker-compose.yml pull
+            echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose -f SERVICE_NAME/docker-compose.yml up -d
