@@ -44,5 +44,5 @@ jobs:
           port: 22
           envs: SERVICE_NAME
           script: |
-            echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose -f $SERVICE_NAME/$SERVICE_NAMEService.yml pull
-            echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose -f $SERVICE_NAME/$SERVICE_NAMEService.yml up -d
+            echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose -f $SERVICE_NAME/service-compose.yml pull
+            echo ${{ secrets.PROD_PWD }} | sudo -S docker-compose -f $SERVICE_NAME/service-compose.yml up -d
