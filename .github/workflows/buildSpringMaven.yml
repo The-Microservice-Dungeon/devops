@@ -46,6 +46,7 @@ jobs:
           port: 22
           envs: IMAGE_NAME, CONTAINER_NAME, NETWORK_NAME
           script: |
+            pwd
             echo ${{ secrets.PROD_PWD }} | sudo -S docker pull $IMAGE_NAME
             echo ${{ secrets.PROD_PWD }} | sudo -S docker stop $CONTAINER_NAME
             echo ${{ secrets.PROD_PWD }} | sudo -S docker rm  $CONTAINER_NAME
